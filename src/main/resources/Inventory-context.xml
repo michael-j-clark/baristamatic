@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <import resource="classpath:Drink-context.xml"/>
+
+    <bean id="inventory" name="inventory" class="com.spr.baristamatic.inventory.InventoryImpl">
+        <constructor-arg>
+            <list>
+                <ref bean="cocoa"/>
+                <ref bean="coffee-i"/>
+                <ref bean="cream"/>
+                <ref bean="decaf-coffee-i"/>
+                <ref bean="espresso"/>
+                <ref bean="foamed-milk"/>
+                <ref bean="steamed-milk"/>
+                <ref bean="sugar"/>
+                <ref bean="whipped-cream"/>
+            </list>
+        </constructor-arg>
+    </bean>
+</beans>

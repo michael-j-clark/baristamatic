@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="coffee-i" class="com.spr.baristamatic.ingredient.IngredientImpl">
+        <constructor-arg type="java.lang.String" value="Coffee"/>
+        <constructor-arg type="java.math.BigDecimal" value=".75"/>
+    </bean>
+    <bean id="decaf-coffee-i" class="com.spr.baristamatic.ingredient.IngredientImpl">
+        <constructor-arg type="java.lang.String" value="Decaf Coffee"/>
+        <constructor-arg type="java.math.BigDecimal" value=".75"/>
+    </bean>
+    <bean id="sugar" class="com.spr.baristamatic.ingredient.IngredientImpl">
+        <constructor-arg type="java.lang.String" value="Sugar"/>
+        <constructor-arg type="java.math.BigDecimal" value=".25"/>
+    </bean>
+    <bean id="cream" class="com.spr.baristamatic.ingredient.IngredientImpl">
+        <constructor-arg type="java.lang.String" value="Cream"/>
+        <constructor-arg type="java.math.BigDecimal" value=".25"/>
+    </bean>
+    <!--
+    Coffee
+    $0.75
+    Decaf Coffee
+    $0.75
+    Sugar
+    $0.25
+    Cream
+    $0.25
+    Steamed Milk
+    $0.35
+    Foamed Milk
+    $0.35
+    Espresso
+    $1.10
+    Cocoa
+    $0.90
+    Whipped Cream
+    $1.00
+    -->
+    <bean id="steamed-milk" class="com.spr.baristamatic.ingredient.IngredientImpl">
+        <constructor-arg type="java.lang.String" value="Steamed Milk"/>
+        <constructor-arg type="java.math.BigDecimal" value=".35"/>
+    </bean>
+    <bean id="foamed-milk" class="com.spr.baristamatic.ingredient.IngredientImpl">
+        <constructor-arg type="java.lang.String" value="Foamed Milk"/>
+        <constructor-arg type="java.math.BigDecimal" value=".35"/>
+    </bean>
+    <bean id="espresso" class="com.spr.baristamatic.ingredient.IngredientImpl">
+        <constructor-arg type="java.lang.String" value="Espresso"/>
+        <constructor-arg type="java.math.BigDecimal" value="1.10"/>
+    </bean>
+    <bean id="cocoa" class="com.spr.baristamatic.ingredient.IngredientImpl">
+        <constructor-arg type="java.lang.String" value="Cocoa"/>
+        <constructor-arg type="java.math.BigDecimal" value=".90"/>
+    </bean>
+    <bean id="whipped-cream" name="whipped-cream" class="com.spr.baristamatic.ingredient.IngredientImpl">
+        <constructor-arg type="java.lang.String" value="Whipped Cream"/>
+        <constructor-arg type="java.math.BigDecimal" value="1.00"/>
+    </bean>
+
+   <bean id="coffee"  class="com.spr.baristamatic.drink.DrinkImpl" >
+       <constructor-arg value="Coffee">
+
+       </constructor-arg>
+       <constructor-arg>
+           <list>
+               <ref bean="coffee-i" />
+               <ref bean="coffee-i" />
+               <ref bean="coffee-i" />
+               <ref bean="cream" />
+               <ref bean="sugar" />
+           </list>
+       </constructor-arg>
+    </bean>
+</beans>
